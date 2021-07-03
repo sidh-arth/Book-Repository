@@ -1,0 +1,158 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Books",
+		"_postman_id": "fc8d175b-1701-bfbe-9e9a-990ff451ae57",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"url": "{{domain_local}}/api/login/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"user1\",\n\t\"password\":\"user1\"\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register new user",
+			"request": {
+				"url": "{{domain_local}}/api/register/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"user1@someone.com\",\n\t\"password\":\"user1\",\n\t\"first_name\":\"User\",\n\t\"last_name\":\"One\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get list of books",
+			"request": {
+				"url": "{{domain_local}}/api/book/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{token2}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get details of a book",
+			"request": {
+				"url": "{{domain_local}}/api/book/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{token2}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add book details",
+			"request": {
+				"url": "{{domain_local}}/api/book/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{token2}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"book_name\" : \"Book2\",\n\t\"author\" : \"Author1\",\n\t\"book_count\":5\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get borrow details",
+			"request": {
+				"url": "{{domain_local}}/api/borrow/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{token2}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add borrow details",
+			"request": {
+				"url": "{{domain_local}}/api/borrow/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{token2}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"book\":\"1\",\n\t\"user\":\"2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
