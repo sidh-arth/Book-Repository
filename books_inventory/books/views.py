@@ -121,7 +121,13 @@ class BookViewSet(viewsets.ModelViewSet):
 class BorrowerViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated, )
     serializer_class = BorrowerSerializer
-    queryset = Borrower.objects.all()
+
+    def get_queryset(self):
+        queryset = Borrower.objects.all()
+        borrower = self.request.query_params.get('borrower')
+        if borrower:
+            queryset = queryset.filter(user__id=borrower)
+        return queryset
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())

@@ -130,6 +130,41 @@
 			"response": []
 		},
 		{
+			"name": "Get borrow details of a particular user",
+			"request": {
+				"url": {
+					"raw": "{{domain_local}}/api/borrow?borrower=2",
+					"host": [
+						"{{domain_local}}"
+					],
+					"path": [
+						"api",
+						"borrow"
+					],
+					"query": [
+						{
+							"key": "borrower",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token {{token2}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "Add borrow details",
 			"request": {
 				"url": "{{domain_local}}/api/borrow/",
@@ -148,7 +183,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"book\":\"1\",\n\t\"user\":\"2\"\n}"
+					"raw": "{\n\t\"book\":\"2\",\n\t\"user\":\"2\"\n}"
 				},
 				"description": ""
 			},
