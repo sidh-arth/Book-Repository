@@ -43,14 +43,19 @@ class BorrowerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Borrower
-        # fields = ('id', 'user', 'book', 'borrow_date' )
         fields = ('id', 'user',  'borrower_name', 'book', 'book_name', 'borrow_date' )
-        # read_only_fields = ('id', 'borrow_date', 'borrowed_book', 'borrower')
+        read_only_fields = ('id', 'borrow_date', 'borrowed_book', 'borrower')
+        extra_kwargs = {
+            'book' : {'required': True},
+            'user' : {'required': True},
+
+        }
 
     def get_book_name(self, obj):
         return obj.book.book_name
 
     def get_borrower_name(self, obj):
+        print(obj)
         if obj.user:
             return obj.user.first_name +' '+ obj.user.last_name
 

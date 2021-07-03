@@ -145,7 +145,6 @@ class BorrowerViewSet(viewsets.ModelViewSet):
             response_data['status_code'] = '201'
             response_data['status'] = True
             response_data['message'] = 'Book borrow details entered successfully'
-            response_data['data'] = serializer.data            
         else:
             response_data['status_code'] = '400'
             response_data['status'] = False
